@@ -8,4 +8,6 @@ Basic features I expect to work on:
   SPA that populates a list of submitted tasks
   Double clicking to edit existing task objects (changing the text value)
   A delete button 'X' to remove the task from the list
-  Tasks can be tagged as "Active" or "Completed" and can be sorted for view that way (not complete on the given example)
+  Tasks can be tagged as "Active" or "Completed" and can be sorted for view that way
+  CSS-inflated radio checkboxes that dictate active or completed statuses
+  A clear all button for any checked item
