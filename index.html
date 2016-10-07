@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="">
+<html lang="en" data-ng-app="myTaskList">
   <head>
     <meta charset="utf-8">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
       <script src="js/node_modules/angular-route/angular-route.js"></script>
       <script src="js/node_modules/angular-resource/angular-resource.js"></script>
       <script src="js/node_modules/angular-sanitize/angular-sanitize.js"></script>
+      <script src="js/task.js"></script>
+      <script src="js/controllers/TLCtrlr.js"></script>
   </head>
   <body>
     <div id="page-wrapper">
@@ -14,6 +16,7 @@
         <form id="task-form" data-ng-submit="addTask()">
           <input type="text" data-ng-model="newTask" name="newTask" placeholder="Type in a task here"/>
           <input type="submit" style="display:none"/>
+          <br /> {{newTask}}
         </form>
       </div>
       <br />
@@ -22,4 +25,9 @@
       </div>
     </div>
   </body>
+  <script>
+    angular.module('myApp',['ngResource','ngRoute','ngSanitize']).controller('tlCtrl',function($scope) {
+        var newTask = $scope.newTask;
+    });
+  </script>
 </html>

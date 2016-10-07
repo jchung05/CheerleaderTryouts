@@ -1,20 +1,22 @@
-angular.module('myTaskList', ['ngResource','ngRoute','ngSanitize'])
-    .config(function ($path) {
+angular.module('myTaskList', ['ngRoute', 'ngResource','ngSanitize'])
+    .config(function ($routeProvider) {
+
         var ctrlPath = {
-            templateUrl: 'index.html',
-            controller: 'TLCtrlr',
-            resolve: {
-                store: function (taskArr) {
-                    return taskArr.get();
-                };
-            }
-        };
-        
-        //Append ctrlPath route to the root
-        $path
+            controller: 'tlCtrl',
+            templateUrl: 'myTaskList-index.html',
+                resolve: {
+                    store: function (taskArr) {
+                        return taskArr.then(function (module) {
+                            module.get();
+                            return module;
+                        });
+                    }
+                }
+            };
+
+        $routeProvider
             .when('/', ctrlPath)
-            .when('/:status', ctrlPath)
-            .otherwise({
-                redirectTo: '/'
-            });
+                .otherwise({
+                    redirectTo: '/index.html'
+                });
     });
