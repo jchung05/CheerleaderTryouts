@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="myTaskList">
+<html lang="en">
   <head>
     <meta charset="utf-8">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -9,25 +9,23 @@
       <script src="js/task.js"></script>
       <script src="js/controllers/TLCtrlr.js"></script>
   </head>
-  <body>
+  <body data-ng-app="myTasks" data-ng-controller="tlCtrl">
     <div id="page-wrapper">
       <div id="todo-field">
         <p>What do you need to do?</p>
         <form id="task-form" data-ng-submit="addTask()">
           <input type="text" data-ng-model="newTask" name="newTask" placeholder="Type in a task here"/>
           <input type="submit" style="display:none"/>
-          <br /> {{newTask}}
+          <br />
         </form>
       </div>
       <br />
-      <div id="sample-task">
-        <input type="checkbox"/> {{newTask}} <span data-ng-bind="newTask"/>
+
+      <div ng-repeat="task in tasks">
+        <input type="checkbox" ng-model="task.complete"> <span ng-bind="task.currentTask"></span>
       </div>
+      
+      <button id="removecomplete" data-ng-click="completeTask()">Remove Completed Tasks</button>
     </div>
   </body>
-  <script>
-    angular.module('myApp',['ngResource','ngRoute','ngSanitize']).controller('tlCtrl',function($scope) {
-        var newTask = $scope.newTask;
-    });
-  </script>
 </html>
