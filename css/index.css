@@ -2,7 +2,24 @@
     text-decoration: line-through;
 }
 
-#filters {
+.task {
     border:1px solid black;
+}
+
+#filters {
     font-size:12px;
+    text-align:center;
+}
+
+#page-wrapper {
+    width:35%;
+    margin: auto;
+}
+
+#todo-field {
+    text-align:center;
+}
+
+#buttons {
+    text-align:center;
 }

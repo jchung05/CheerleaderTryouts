@@ -22,12 +22,15 @@ angular.module('myTasks')
         
         $scope.editTask = function(task) {
             //Not done yet but the call from index.html works
-            alert("Do you work?");
+            //alert("Do you work?");
         };
 
         $scope.completeTask = function(task) {
             if (task.complete) {
-                return !task.complete;
+                task.complete = false;
+            }
+            else {
+                task.complete = true;
             }
             return task.complete;
         };
@@ -35,14 +38,17 @@ angular.module('myTasks')
         //Selects the filter to see the tasks
         //Does not filter correctly
         $scope.changeFilter = function(fil) {
-            $scope.filters = fil
+            $scope.filters = fil;
             switch ($scope.filters) {
                 case 'complete':
-                    return task.currentTask;
+                    alert($scope.filters);
+                    return task.complete = true;
                 case 'incomplete':
-                    return !task.complete;
+                    alert($scope.filters);
+                    return task.complete = false;
                 default:
-                    return $scope.tasks;
+                    alert($scope.filters);
+                    return;
             }
         };
         

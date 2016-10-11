@@ -28,16 +28,19 @@
         <span id="deleteTask" data-ng-click="deleteTask(task)">X</span>          
       </div>
       
+      <br />
       <div id="filters">
-        <b>TASK FILTERS</b> <br />
+        <u><b>TASK FILTERS</b></u> <br />
         <span id="all" data-ng-click="alertFilter('')">All Tasks</span> | 
         <span id="incomplete" data-ng-click="changeFilter('incomplete')">Incomplete Tasks</span> | 
         <span id="complete" data-ng-click="changeFilter('complete')">Completed Tasks</span>
       </div>
       <br />
-      <button id="completeAll" data-ng-click="completeAll()">Complete All Tasks</button>
-      <br />
-      <button id="removecomplete" data-ng-click="removeTasks()">Remove Completed Tasks</button>
+      
+      <div id="buttons">
+        <button id="completeAll" data-ng-click="completeAll()">Complete All Tasks</button> | 
+        <button id="removecomplete" data-ng-click="removeTasks()">Remove Completed Tasks</button>
+      </div>
     </div>
   </body>
 </html>
