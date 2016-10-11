@@ -18,14 +18,25 @@ angular.module('myTasks')
             $scope.newTask = "";
         };
         
-        $scope.editTask = function() {
-        
+        $scope.editTask = function(task) {
+            //Not done yet
         };
 
-        $scope.completeTask = function() {
-            angular.forEach($scope.todoList, function(task) {
-            if (task.done) {
-                $scope.todoList.splice($scope.todoList.indexOf(task),1)
+        $scope.completeAll = function() {
+            angular.forEach($scope.tasks, function(task) {
+                task.complete = true;
+            });
+        };
+        
+        $scope.deleteTask = function(task) {
+            $scope.tasks.splice($scope.tasks.indexOf(task), 1);
+        };
+        
+        //Currently bugged to only remove half the tasks
+        $scope.removeTasks = function() {
+            angular.forEach($scope.tasks, function(task) {
+            if (task.complete) {
+                $scope.tasks.splice($scope.tasks.indexOf(task),1)
                 }
             });
         };

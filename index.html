@@ -21,11 +21,16 @@
       </div>
       <br />
 
-      <div ng-repeat="task in tasks">
-        <input type="checkbox" ng-model="task.complete"> <span ng-bind="task.currentTask"></span>
+      <div class="task" data-ng-repeat="task in tasks">
+        <input type="checkbox" data-ng-model="task.complete">
+        <span data-ng-click="editTask(task)"> {{task.currentTask}} </span>
+        <span id="deleteTask" data-ng-click="deleteTask(task)">X</span>          
       </div>
       
-      <button id="removecomplete" data-ng-click="completeTask()">Remove Completed Tasks</button>
+      <br />
+      <button id="completeAll" data-ng-click="completeAll()">Complete All Tasks</button>
+      <br />
+      <button id="removecomplete" data-ng-click="removeTasks()">Remove Completed Tasks</button>
     </div>
   </body>
 </html>
