@@ -8,6 +8,7 @@
       <script src="js/node_modules/angular-sanitize/angular-sanitize.js"></script>
       <script src="js/task.js"></script>
       <script src="js/controllers/TLCtrlr.js"></script>
+      <link rel="stylesheet" href="css/index.css">
   </head>
   <body data-ng-app="myTasks" data-ng-controller="tlCtrl">
     <div id="page-wrapper">
@@ -21,12 +22,18 @@
       </div>
       <br />
 
-      <div class="task" data-ng-repeat="task in tasks">
-        <input type="checkbox" data-ng-model="task.complete">
-        <span data-ng-click="editTask(task)"> {{task.currentTask}} </span>
+      <div class="task" data-ng-repeat="task in tasks | filter:filters">
+        <input type="checkbox" data-ng-click="completeTask(task)">
+        <label data-ng-class="{completed: task.complete}" data-ng-click="editTask(task)"> {{task.currentTask}} </label>
         <span id="deleteTask" data-ng-click="deleteTask(task)">X</span>          
       </div>
       
+      <div id="filters">
+        <b>TASK FILTERS</b> <br />
+        <span id="all" data-ng-click="alertFilter('')">All Tasks</span> | 
+        <span id="incomplete" data-ng-click="changeFilter('incomplete')">Incomplete Tasks</span> | 
+        <span id="complete" data-ng-click="changeFilter('complete')">Completed Tasks</span>
+      </div>
       <br />
       <button id="completeAll" data-ng-click="completeAll()">Complete All Tasks</button>
       <br />
