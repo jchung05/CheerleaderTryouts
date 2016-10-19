@@ -1,1 +1,1 @@
-angular.module('myTasks', ['ngRoute', 'ngResource','ngSanitize']);
+angular.module('myTasks', ['ngRoute', 'ngResource','ngSanitize','ngStorage']);

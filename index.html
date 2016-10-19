@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+      <script src="js/node_modules/angular/angular.min.js"></script>
       <script src="js/node_modules/angular-route/angular-route.js"></script>
       <script src="js/node_modules/angular-resource/angular-resource.js"></script>
       <script src="js/node_modules/angular-sanitize/angular-sanitize.js"></script>
+      <script src="js/node_modules/ngstorage/ngStorage.js"></script>
       <script src="js/task.js"></script>
       <script src="js/controllers/TLCtrlr.js"></script>
       <link rel="stylesheet" href="css/index.css">
@@ -29,9 +30,11 @@
       </div>
       
       <br />
+      <span id="taskCount"> {{count}} </span>
+      <br />
       <div id="filters">
         <u><b>TASK FILTERS</b></u> <br />
-        <span id="all" data-ng-click="alertFilter('')">All Tasks</span> | 
+        <span id="all" data-ng-click="changeFilter('')">All Tasks</span> | 
         <span id="incomplete" data-ng-click="changeFilter('incomplete')">Incomplete Tasks</span> | 
         <span id="complete" data-ng-click="changeFilter('complete')">Completed Tasks</span>
       </div>

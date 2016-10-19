@@ -1,10 +1,14 @@
 angular.module('myTasks')
-    .controller('tlCtrl', function($scope) {
+    .controller('tlCtrl', function($scope,$sessionStorage) {
         $scope.tasks = [{currentTask:'Complete me!', complete:false}];
     
-        $scope.filters = "";
+        $scope.count = 1;
         
-        var tasks = $scope.tasks;
+        $sessionStorage.tasks = $scope.tasks;
+        
+        $scope.edited = null;
+        
+        $scope.filters = "";
         
         $scope.newTask = "I'm a task!";
 
@@ -41,14 +45,14 @@ angular.module('myTasks')
             $scope.filters = fil;
             switch ($scope.filters) {
                 case 'complete':
-                    alert($scope.filters);
-                    return task.complete = true;
+                    //alert($scope.filters);
+                    //return task.complete = true;
                 case 'incomplete':
-                    alert($scope.filters);
-                    return task.complete = false;
+                    //alert($scope.filters);
+                    //return task.complete = false;
                 default:
-                    alert($scope.filters);
-                    return;
+                    //alert($scope.filters);
+                    return $scope.currentTask;
             }
         };
         
